@@ -19,11 +19,11 @@ public class CalculatorOperations {
 
             // Current token is a number, push it to stack for numbers
             if (tokens[i] >= '0' && tokens[i] <= '9' || tokens[i] == '.') {
-                StringBuilder sbuf = new StringBuilder();
-                // There may be more than one digits in number
+                StringBuilder StackOfNum = new StringBuilder();
+                // There may be more than one digit in number
                 while (i < tokens.length && (tokens[i] >= '0' && tokens[i] <= '9' || tokens[i] == '.'))
-                    sbuf.append(tokens[i++]);
-                values.push(Double.parseDouble(sbuf.toString()));
+                    StackOfNum.append(tokens[i++]);
+                values.push(Double.parseDouble(StackOfNum.toString()));
                 i--;
             } else if (tokens[i] == '(') {
                 ops.push(tokens[i]);
@@ -47,24 +47,25 @@ public class CalculatorOperations {
     private static boolean hasPrecedence(char op1, char op2) {
         if (op2 == '(' || op2 == ')')
             return false;
-        if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-'))
-            return false;
-        else
-            return true;
+        return (op1 != '*' && op1 != '/') || (op2 != '+' && op2 != '-');
     }
 
     private static double applyOp(char op, double b, double a) {
         switch (op) {
-            case '+':
+            case '+' -> {
                 return a + b;
-            case '-':
+            }
+            case '-' -> {
                 return a - b;
-            case '*':
+            }
+            case '*' -> {
                 return a * b;
-            case '/':
+            }
+            case '/' -> {
                 if (b == 0)
                     throw new UnsupportedOperationException("Cannot divide by zero");
                 return a / b;
+            }
         }
         return 0;
     }

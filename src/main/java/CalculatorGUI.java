@@ -4,11 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CalculatorGUI {
-    private JFrame frame;
     private JTextField display;
-    private JPanel panel;
-    private JButton[] buttons;
-    private String[] buttonLabels = {
+    private final String[] buttonLabels = {
             "AC", "(", ")", "/",
             "7", "8", "9", "X",
             "4", "5", "6", "-",
@@ -19,7 +16,7 @@ public class CalculatorGUI {
     private String currentInput = "";
 
     public void createAndShowGUI() {
-        frame = new JFrame("Calculator");
+        JFrame frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 400);
         frame.setLocationRelativeTo(null);
@@ -31,10 +28,10 @@ public class CalculatorGUI {
         display.setPreferredSize(new Dimension(300, 50));
         frame.add(display, BorderLayout.NORTH);
 
-        panel = new JPanel();
+        JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 4, 10, 10)); // Grid layout with 5 rows and 4 columns
 
-        buttons = new JButton[20];
+        JButton[] buttons = new JButton[20];
         for (int i = 0; i < buttonLabels.length; i++) {
             buttons[i] = new JButton(buttonLabels[i]);
             buttons[i].setFont(new Font("Arial", Font.BOLD, 20));
