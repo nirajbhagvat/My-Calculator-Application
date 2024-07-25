@@ -33,7 +33,7 @@ Contributions are welcome! Please follow these steps to contribute:
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0. For the full text of the license, please refer to the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.txt).
 
 ## Contact
 
